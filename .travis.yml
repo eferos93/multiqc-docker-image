@@ -4,4 +4,4 @@ install:
   - docker build -t multiqc .
   - docker run -d --name multiqc multiqc
 script:
-  - docker ps | grep -q eferos93/multiqc
+  - docker images multiqc
