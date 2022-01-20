@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     python3-pip \
     texlive-xetex \
-    texlive-math-extra \
+    texlive-science \
     locales && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && apt-get autoclean && rm -rf /var/lib/apt/lists/*
