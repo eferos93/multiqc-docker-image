@@ -56,6 +56,8 @@ ENV LC_ALL='C.UTF-8' LANG='C.UTF-8'
 
 ENV PATH="/pandoc-2.7.3/bin:${PATH}"
 
-WORKDIR /
+VOLUME [ "/tesi-fabrici" ]
+
+WORKDIR /tesi-fabrici
 
 ENTRYPOINT ["multiqc"]
