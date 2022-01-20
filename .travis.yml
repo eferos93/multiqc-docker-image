@@ -1,7 +1,7 @@
 services:
   - docker
 install:
-  - docker build -t eferos93/multiqc .
-  - docker run -d --name eferos93/multiqc eferos93/multiqc
+  - docker build -t multiqc .
+  - docker run -d --name multiqc multiqc
 script:
   - docker ps | grep -q eferos93/multiqc
