@@ -1,7 +1,10 @@
 services:
   - docker
 install:
-  - docker build -t eferos93/multiqc .
-  - docker run -d --name multiqc eferos93/multiqc
+  - docker build -t multiqc .
 script:
   - docker images multiqc
+after_success: 
+  - docker tag multiqc eferos93/multiqc:latest
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push eferos93/multiqc
