@@ -58,7 +58,7 @@ ENV PATH="/pandoc-2.7.3/bin:${PATH}"
 
 # VOLUME [ "/tesi-fabrici" ]
 
-RUN mkdir tesi-fabrici
-WORKDIR /tesi-fabrici
+RUN mkdir data
+WORKDIR /data
 
 ENTRYPOINT ["multiqc"]
