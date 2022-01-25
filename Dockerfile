@@ -56,6 +56,6 @@ ENV LC_ALL='C.UTF-8' LANG='C.UTF-8'
 
 ENV PATH="/pandoc-2.7.3/bin:${PATH}"
 
-RUN mkdir genomic_data
+# RUN mkdir genomic_data
 
 ENTRYPOINT ["multiqc"]
