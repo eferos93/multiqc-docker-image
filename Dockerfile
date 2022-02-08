@@ -57,7 +57,7 @@ ENV LC_ALL='C.UTF-8' LANG='C.UTF-8'
 ENV PATH="/pandoc-2.7.3/bin:${PATH}"
 
 RUN mkdir unit_test_data
-COPY 1.FASTQ/ /unit_test_data/
+COPY 1.FASTQC/ /unit_test_data/
 
 RUN mkdir genomic_data_test
 RUN mkdir illumina_run
