@@ -3,7 +3,7 @@ services:
 install:
   - docker build -t multiqc .
 script:
-  - docker run multiqc unit_test_data -o unit_test_data -x -n multiqc_result -f
+  - docker run multiqc unit_test_data -o unit_test_data -x  -n multiqc_result -f
   - docker images multiqc
 after_success: 
   - docker tag multiqc eferos93/multiqc:latest
