@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: multiqc-CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build -t multiqc .
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PWD }}
+    - name: Test the image
+      run: docker run multiqc unit_test_data -o unit_test_data -n multiqc_result -f
+    - name: Tag and Push the Image
+      run: |
+          docker tag multiqc eferos93/multiqc:latest
+          docker push eferos93/multiqc
+   # - name: Build and push Docker image
+    #  uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+    #  with:
+    #    context: .
+    #    push: true
+     #   tags: eferos93/bcl2fastq 
